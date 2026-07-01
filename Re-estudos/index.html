@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Re-estudos · Aulas gratuitas</title>
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (gratuito) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ========== RESET E BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f2f6fe;
+      color: #0b1e33;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .app {
+      max-width: 1100px;
+      width: 100%;
+      background: white;
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+      padding: 2rem 2rem 2.2rem;
+      transition: all 0.2s;
+    }
+
+    /* ========== TOPO ========== */
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #eef2f6;
+      padding-bottom: 1.2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo i {
+      font-size: 2.2rem;
+      color: #2563eb;
+      background: #dbeafe;
+      padding: 10px;
+      border-radius: 18px;
+    }
+    .logo h1 {
+      font-weight: 800;
+      font-size: 2rem;
+      letter-spacing: -0.5px;
+      color: #0b1e33;
+    }
+    .logo h1 span {
+      color: #2563eb;
+    }
+
+    .badge-gratis {
+      background: #d1fae5;
+      color: #065f46;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(145deg, #eef6ff, #ffffff);
+      border-radius: 2rem;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #dbeafe;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-text {
+      flex: 1 1 280px;
+    }
+    .hero-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #0b1e33;
+      line-height: 1.2;
+    }
+    .hero-text h2 i {
+      color: #2563eb;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #475569;
+      margin-top: 0.6rem;
+      max-width: 480px;
+    }
+    .hero-text .destaque {
+      background: #dbeafe;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-top: 0.6rem;
+    }
+
+    .hero-img {
+      font-size: 4rem;
+      color: #2563eb;
+      background: #dbeafe;
+      padding: 1rem 1.8rem;
+      border-radius: 100px;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+    }
+
+    /* ========== VANTAGENS ========== */
+    .vantagens {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .vantagem-card {
+      background: #fafcff;
+      border-radius: 1.8rem;
+      padding: 1.6rem 1.5rem;
+      border: 1px solid #e9edf2;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.1s;
+    }
+    .vantagem-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      border-color: #b9d0f0;
+    }
+    .vantagem-card i {
+      font-size: 2.8rem;
+      color: #2563eb;
+      background: #eef6ff;
+      padding: 0.6rem;
+      border-radius: 60px;
+      margin-bottom: 0.8rem;
+    }
+    .vantagem-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .vantagem-card p {
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    /* ========== GRADE DE AULAS ========== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #0b1e33;
+      margin-bottom: 1.2rem;
+    }
+    .section-title i {
+      color: #2563eb;
+      font-size: 1.8rem;
+    }
+
+    .grid-aulas {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .aula-item {
+      background: #ffffff;
+      border-radius: 1.4rem;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid #e9edf2;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .aula-item:hover {
+      border-color: #b9d0f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .aula-item .aula-materia {
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .aula-item .aula-materia i {
+      color: #2563eb;
+      width: 1.6rem;
+    }
+
+    .aula-item .aula-desc {
+      font-size: 0.9rem;
+      color: #475569;
+      margin: 0.3rem 0 0.6rem;
+      line-height: 1.4;
+    }
+
+    .aula-item .aula-tag {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #eef2f6;
+      padding-top: 0.7rem;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+    .aula-item .aula-tag span {
+      background: #f1f5f9;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+    .btn-assistir {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: default;
+    }
+
+    /* ========== RODAPÉ ========== */
+    .footer {
+      margin-top: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: #475569;
+      font-size: 0.9rem;
+    }
+    .footer i {
+      color: #2563eb;
+    }
+    .footer .app-badge {
+      background: #f1f5f9;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+
+    /* ========== RESPONSIVO ========== */
+    @media (max-width: 850px) {
+      .vantagens {
+        grid-template-columns: 1fr 1fr;
+      }
+      .grid-aulas {
+        grid-template-columns: 1fr 1fr;
+      }
+      .app {
+        padding: 1.5rem;
+      }
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .hero-img {
+        align-self: center;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .vantagens {
+        grid-template-columns: 1fr;
+      }
+      .grid-aulas {
+        grid-template-columns: 1fr;
+      }
+      .top-bar {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.8rem;
+      }
+      .logo h1 {
+        font-size: 1.7rem;
+      }
+      .hero-text h2 {
+        font-size: 1.6rem;
+      }
+      .hero-img {
+        font-size: 3rem;
+        padding: 0.6rem 1.4rem;
+      }
+    }
+
+    /* ========== UTILITÁRIOS ========== */
+    .mt-1 { margin-top: 0.5rem; }
+    .d-flex { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .text-gratis { color: #2563eb; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- TOPO -->
+  <div class="top-bar">
+    <div class="logo">
+      <i class="fas fa-book-open"></i>
+      <h1>Re<span>estudos</span></h1>
+    </div>
+    <div class="d-flex">
+      <span class="badge-gratis"><i class="fas fa-gem"></i> 100% grátis</span>
+      <span style="background:#f1f5f9; padding:0.3rem 1.2rem; border-radius:40px; font-weight:500; font-size:0.9rem;">
+        <i class="fas fa-mobile-screen-button"></i> App mobile
+      </span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <h2><i class="fas fa-rotate-left"></i> Re-estude <br>sem esquecer a base</h2>
+      <p>Aulas eficazes dos anos passados, gratuitas e acessíveis a qualquer hora. Entenda de verdade, não decore.</p>
+      <span class="destaque"><i class="fas fa-check-circle"></i> +1.200 alunos já revisaram</span>
+    </div>
+    <div class="hero-img">
+      <i class="fas fa-graduation-cap"></i>
+    </div>
+  </div>
+
+  <!-- VANTAGENS -->
+  <div class="vantagens">
+    <div class="vantagem-card">
+      <i class="fas fa-wifi"></i>
+      <h3>Acessível sempre</h3>
+      <p>Disponível 24h, de qualquer lugar. Estude no seu ritmo.</p>
+    </div>
+    <div class="vantagem-card">
+      <i class="fas fa-brain"></i>
+      <h3>Entenda, não decore</h3>
+      <p>Metodologia que foca na compreensão real dos conteúdos.</p>
+    </div>
+    <div class="vantagem-card">
+      <i class="fas fa-coins"></i>
+      <h3>Totalmente grátis</h3>
+      <p>Sem custos, sem anúncios. Apenas aprendizado de qualidade.</p>
+    </div>
+  </div>
+
+  <!-- AULAS DISPONÍVEIS (REVISÃO) -->
+  <div class="section-title">
+    <i class="fas fa-video"></i>
+    <span>Aulas para revisar</span>
+    <span style="background:#dbeafe; font-size:0.7rem; padding:0.1rem 1rem; border-radius:40px; font-weight:600;">anos anteriores</span>
+  </div>
+
+  <div class="grid-aulas">
+
+    <div class="aula-item">
+      <div class="aula-materia"><i class="fas fa-calculator"></i> Matemática</div>
+      <div class="aula-desc">Frações, equações básicas e geometria — base para o 8º ano.</div>
+      <div class="aula-tag">
+        <span><i class="far fa-clock"></i> 22 min</span>
+        <div class="btn-assistir"><i class="fas fa-play"></i> Assistir</div>
+      </div>
+    </div>
+
+    <div class="aula-item">
+      <div class="aula-materia"><i class="fas fa-flask"></i> Ciências</div>
+      <div class="aula-desc">Sistema solar, cadeia alimentar e estados da matéria.</div>
+      <div class="aula-tag">
+        <span><i class="far fa-clock"></i> 18 min</span>
+        <div class="btn-assistir"><i class="fas fa-play"></i> Assistir</div>
+      </div>
+    </div>
+
+    <div class="aula-item">
+      <div class="aula-materia"><i class="fas fa-language"></i> Português</div>
+      <div class="aula-desc">Interpretação de texto, classes de palavras e ortografia.</div>
+      <div class="aula-tag">
+        <span><i class="far fa-clock"></i> 25 min</span>
+        <div class="btn-assistir"><i class="fas fa-play"></i> Assistir</div>
+      </div>
+    </div>
+
+    <div class="aula-item">
+      <div class="aula-materia"><i class="fas fa-globe-americas"></i> História</div>
+      <div class="aula-desc">Idade Média, grandes navegações e Brasil colônia.</div>
+      <div class="aula-tag">
+        <span><i class="far fa-clock"></i> 20 min</span>
+        <div class="btn-assistir"><i class="fas fa-play"></i> Assistir</div>
+      </div>
+    </div>
+
+    <div class="aula-item">
+      <div class="aula-materia"><i class="fas fa-map"></i> Geografia</div>
+      <div class="aula-desc">Mapas, regiões brasileiras e climas.</div>
+      <div class="aula-tag">
+        <span><i class="far fa-clock"></i> 17 min</span>
+        <div class="btn-assistir"><i class="fas fa-play"></i> Assistir</div>
+      </div>
+    </div>
+
+    <div class="aula-item">
+      <div class="aula-materia"><i class="fas fa-atom"></i> Física (básica)</div>
+      <div class="aula-desc">Movimento, forças e energia — conceitos fundamentais.</div>
+      <div class="aula-tag">
+        <span><i class="far fa-clock"></i> 24 min</span>
+        <div class="btn-assistir"><i class="fas fa-play"></i> Assistir</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="footer">
+    <div>
+      <i class="fas fa-rotate-left"></i> 
+      <span><strong>Re-estudos</strong> · sua base fortalecida</span>
+    </div>
+    <div class="d-flex">
+      <span><i class="fas fa-check-circle" style="color:#2563eb;"></i> Aulas eficazes</span>
+      <span><i class="fas fa-mobile-screen"></i> Acesse no app</span>
+    </div>
+    <div class="app-badge">
+      <i class="fas fa-download"></i> Baixar app
+    </div>
+  </div>
+
+  <!-- MENSAGEM FINAL (DESTAQUE) -->
+  <div style="margin-top: 1.2rem; background: #eef6ff; border-radius: 60px; padding: 0.5rem 1.5rem; font-size:0.9rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; border: 1px solid #dbeafe;">
+    <i class="fas fa-circle-exclamation" style="color:#2563eb;"></i>
+    <span><strong>Não deixe a base se perder.</strong> Re-estude agora, grátis.</span>
+    <span style="background:#2563eb; color:white; padding:0.1rem 1.2rem; border-radius:40px; font-weight:600; font-size:0.8rem;">comece já</span>
+  </div>
+
+</div>
+<!-- fim .app -->
+
+</body>
+</html>
