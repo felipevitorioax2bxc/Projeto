@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Exercícios | Math+</title>
+
+<link
+    rel="stylesheet"
+    href="css/style.css"
+>
+
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="top-bar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            ∑
+        </div>
+
+        <h1>
+            Math<span>+</span>
+        </h1>
+
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            Início
+        </a>
+
+        <a href="conteudos.html">
+            Conteúdos
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="question-box">
+
+    <span class="tag">
+        🧠 EXERCÍCIO
+    </span>
+
+    <h2 id="pergunta">
+        Quanto é 8 × 7?
+    </h2>
+
+
+    <div class="answers">
+
+        <button onclick="responder(54)">
+            54
+        </button>
+
+        <button onclick="responder(56)">
+            56
+        </button>
+
+        <button onclick="responder(64)">
+            64
+        </button>
+
+        <button onclick="responder(48)">
+            48
+        </button>
+
+    </div>
+
+
+    <p id="resultado"></p>
+
+</section>
+
+</div>
+
+
+<script>
+
+function responder(resposta) {
+
+    const resultado =
+        document.getElementById(
+            "resultado"
+        );
+
+
+    if (resposta === 56) {
+
+        resultado.innerText =
+            "🎉 Muito bem! Resposta correta!";
+
+        resultado.className =
+            "correct";
+
+    } else {
+
+        resultado.innerText =
+            "🤔 Ainda não. Tente novamente!";
+
+        resultado.className =
+            "wrong";
+
+    }
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
